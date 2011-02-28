@@ -2236,14 +2236,9 @@ void TDM_VoteMenuApply (edict_t *ent)
 	}
 
 	// things above this can be voted during the match
-	if (tdm_match_status == MM_PLAYING && newvote)
+	if (tdm_match_status != MM_WARMUP)
 	{
-		PMenu_Close (ent);
-
-		TDM_SetupVote (ent);
-		TDM_AnnounceVote ();
-		TDM_CheckVote();
-		return;
+		goto done;
 	}
 
 	if (ent->client->pers.votemenu_values.map[0] != '\0' && ent->client->pers.votemenu_values.map[0] != '-' &&
@@ -2361,6 +2356,7 @@ void TDM_VoteMenuApply (edict_t *ent)
 		}
 	}
 	
+done:
 	PMenu_Close (ent);
 
 	if (newvote)
