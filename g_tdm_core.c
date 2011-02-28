@@ -2574,17 +2574,21 @@ void TDM_Init (void)
 	var = gi.cvar ("sv_new_entflags", NULL, 0);
 	if (!var)
 	{
-		//super cheesy notice!
-		gi.dprintf ("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-		gi.dprintf ("               W A R N I N G !\n");
-		gi.dprintf ("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-		gi.dprintf ("\n");
-		gi.dprintf ("  OpenTDM is designed to use some of the new\n");
-		gi.dprintf ("  features in R1Q2. Your server does not\n");
-		gi.dprintf ("  appear to be running R1Q2, or is out of\n");
-		gi.dprintf ("  date. Some features may not work correctly.\n");
-		gi.dprintf ("\n");
-		gi.dprintf ("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+		//if sv_features is set, server is assumed to be running Q2PRO
+		if (!game.server_features)
+		{
+			//super cheesy notice!
+			gi.dprintf ("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+			gi.dprintf ("               W A R N I N G !\n");
+			gi.dprintf ("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+			gi.dprintf ("\n");
+			gi.dprintf ("  OpenTDM is designed to use some of the new\n");
+			gi.dprintf ("  features in R1Q2. Your server does not\n");
+			gi.dprintf ("  appear to be running R1Q2, or is out of\n");
+			gi.dprintf ("  date. Some features may not work correctly.\n");
+			gi.dprintf ("\n");
+			gi.dprintf ("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+		}
 	}
 	else
 	{
