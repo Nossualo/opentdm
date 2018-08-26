@@ -523,7 +523,7 @@ GRENADE
 ======================================================================
 */
 
-#define GRENADE_TIMER		3.0
+#define GRENADE_TIMER		3.0f
 #define GRENADE_MINSPEED	400
 #define GRENADE_MAXSPEED	800
 
@@ -721,7 +721,7 @@ void weapon_grenadelauncher_fire (edict_t *ent)
 	ent->client->kick_origin_start = 0;
 	ent->client->kick_origin_end = 0.1f * SERVER_FPS;
 
-	fire_grenade (ent, start, forward, damage, 600, 2.5, radius);
+	fire_grenade (ent, start, forward, damage, 600, 2.5f, radius);
 	TDM_WeaponFired (ent);
 
 	gi.WriteByte (svc_muzzleflash);
